@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Countdown</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h2>Audits</h2>
+            <button class="audit-button" onclick="setPreset('Audit Strom', 2026, 2, 26, 8, 0, this)" data-color="#1F1F1F">
+                Audit Strom
+            </button>
+            <button class="audit-button" onclick="setPreset('FW 601', 2026, 2, 28, 8, 0, this)" data-color="#1F1F1F">
+                FW 601
+            </button>
+            <button class="audit-button" onclick="setPreset('$62 AwsV', 2026, 3, 15, 8, 0, this)" data-color="#1F1F1F">
+                $62 AwsV
+            </button>
+            <button class="audit-button" onclick="setPreset('Audit ISO 9001 & SCC', 2026, 3, 30, 8, 0, this)" data-color="#1F1F1F">
+                Audit ISO 9001 & SCC
+            </button>
+            <button class="audit-button" onclick="setPreset('Audit GW 301', 2026, 04, 19, 8, 0, this)" data-color="#1F1F1F">
+                Audit GW 301
+            </button>
+            <button class="audit-button" onclick="setPreset('Audit GW 302', 2026, 06, 03, 8, 0, this)" data-color="#1F1F1F">
+                Audit GW 302
+            </button>
+            <button class="audit-button" onclick="setPreset('Audit RAL', 2026, 9, 30, 8, 0, this)" data-color="#1F1F1F">
+                Audit RAL
+            </button>
+            <button class="audit-button" onclick="setPreset('Audit ISO 14001', 2026, 11, 2, 8, 0, this)" data-color="#1F1F1F">
+                Audit ISO 14001
+            </button>
+        </div>
+
+        <div class="main-panel">
+            <div class="header">
+                <div>
+                    <h1 id="eventTitle">Your Event</h1>
+                </div>
+                <button class="save-button" onclick="saveToCalendar()">Save to Calendar</button>
+            </div>
+            
+            <div id="countdownContent">
+                <div class="empty-state">
+                    <div class="empty-state-icon">📅</div>
+                    <p style="font-size: 1.2em; margin-bottom: 10px;">Wähle ein Audit aus</p>
+                    <p>Klicke auf eines der Audits in der Seitenleiste</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
