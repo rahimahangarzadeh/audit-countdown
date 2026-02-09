@@ -256,3 +256,135 @@ h1{
   *{transition:none!important;scroll-behavior:auto!important}
 }
 
+/* Mobile-optimierte Version (basierend auf style.css) */
+
+/* Reset */
+*{margin:0;padding:0;box-sizing:border-box}
+
+/* Design Tokens */
+:root{
+  --radius-lg:24px;
+  --radius-md:16px;
+  --radius-sm:12px;
+  --gap-lg:30px;
+  --gap-md:18px;
+  --gap-sm:12px;
+  --pad-lg:40px;
+  --pad-md:24px;
+  --pad-sm:16px;
+  --glass-bg:rgba(255,255,255,.10);
+  --glass-br:1px solid rgba(255,255,255,.20);
+  --text:rgba(255,255,255,.90);
+  --text-muted:rgba(255,255,255,.78);
+}
+
+/* Base */
+html{
+  -webkit-text-size-adjust:100%;
+  text-size-adjust:100%;
+}
+
+body{
+  font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
+  background:linear-gradient(135deg,#b0b3c0 0%,#545355 100%);
+  min-height:100svh;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  padding:var(--gap-md);
+  color:var(--text);
+}
+
+/* Layout - HIER IST DIE ÄNDERUNG */
+.container{
+  width:100%;
+  max-width:1200px;
+  display:grid;
+  /* Standardmäßig untereinander für Mobile */
+  grid-template-columns: 1fr; 
+  gap:var(--gap-lg);
+}
+
+/* Desktop-Ansicht (nur wenn der Bildschirm breit genug ist) */
+@media (min-width: 969px) {
+  .container {
+    grid-template-columns: minmax(280px, 380px) 1fr;
+  }
+}
+
+/* Panels */
+.sidebar,
+.main-panel{
+  background:var(--glass-bg);
+  border:var(--glass-br);
+  border-radius:var(--radius-lg);
+  padding:var(--pad-md);
+  -webkit-backdrop-filter:blur(10px);
+  backdrop-filter:blur(10px);
+  width: 100%; /* Verhindert das Quetschen */
+}
+
+/* Buttons */
+.audit-button{
+  width:100%;
+  padding:16px;
+  margin-bottom:12px;
+  background:rgba(255,255,255,.95);
+  border:0;
+  border-radius:var(--radius-md);
+  text-align:left;
+  font-size:clamp(.95rem,2.8vw,1rem);
+  font-weight:600;
+  color:#333;
+  min-height:48px;
+}
+
+.audit-button.active{
+  background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);
+  color:#fff;
+}
+
+/* Countdown */
+.countdown{
+  display:grid;
+  grid-template-columns:repeat(2,1fr); /* 2x2 Layout für bessere Lesbarkeit auf Mobile */
+  gap:var(--gap-md);
+  margin-bottom:24px;
+}
+
+/* Größere Bildschirme bekommen wieder 4 Spalten */
+@media (min-width: 600px) {
+  .countdown {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.time-unit{
+  background:rgba(255,255,255,.15);
+  border-radius:20px;
+  padding:20px 10px;
+  text-align:center;
+}
+
+.time-value{
+  font-size:clamp(1.8rem, 7vw, 3rem);
+  font-weight:800;
+  color:#fff;
+}
+
+/* Save Button */
+.save-button{
+  width: 100%;
+  padding:14px;
+  background:#fff;
+  color:#667eea;
+  border-radius:var(--radius-sm);
+  font-weight:700;
+  margin-top: 10px;
+}
+
+/* Responsive Fixes */
+@media (max-width: 480px){
+  body { padding: 10px; }
+  .sidebar, .main-panel { padding: var(--pad-sm); }
+}
