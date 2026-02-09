@@ -305,10 +305,15 @@ body{
   gap:var(--gap-lg);
 }
 
-/* Desktop-Ansicht (nur wenn der Bildschirm breit genug ist) */
-@media (min-width: 969px) {
+@media (max-width: 968px) {
   .container {
-    grid-template-columns: minmax(280px, 380px) 1fr;
+    display: flex;
+    flex-direction: column; /* Erzwingt das Stapeln untereinander */
+    gap: 20px;
+  }
+
+  .sidebar, .main-panel {
+    width: 100%; /* Nutzt die volle Breite des Handys */
   }
 }
 
