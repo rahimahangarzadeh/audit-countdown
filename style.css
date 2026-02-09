@@ -208,13 +208,30 @@ h1{
 }
 
 /* Responsive */
-@media (max-width: 968px){
-  body{padding:var(--gap-sm)}
-  .container{
-    grid-template-columns:1fr;
-    gap:var(--gap-md);
+/* Responsive Anpassung für Tablets und Handys */
+@media (max-width: 968px) {
+  body {
+    padding: var(--gap-sm);
   }
-  .main-panel{padding:var(--pad-md)}
+
+  .container {
+    /* Das ist der entscheidende Teil: 1fr bedeutet eine volle Spalte */
+    grid-template-columns: 1fr; 
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-md);
+  }
+
+  .sidebar {
+    width: 100%;
+    order: 1; /* Liste oben */
+  }
+
+  .main-panel {
+    width: 100%;
+    order: 2; /* Timer darunter */
+    padding: var(--pad-md);
+  }
 }
 
 @media (max-width: 768px){
@@ -239,68 +256,3 @@ h1{
   *{transition:none!important;scroll-behavior:auto!important}
 }
 
-/* =========================
-   MOBILE LAYOUT FIX
-   ========================= */
-@media (max-width: 768px) {
-
-  body {
-    align-items: flex-start;
-    padding: 12px;
-    min-height: 100svh;
-  }
-
-  /* Hauptcontainer */
-  .container,
-  .app,
-  .main {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    gap: 16px;
-  }
-
-  /* Sidebar (Audit-Liste) */
-  .sidebar,
-  .audit-list {
-    width: 100%;
-    order: 1;
-  }
-
-  /* Inhalt rechts */
-  .content,
-  .detail,
-  .card {
-    width: 100%;
-    order: 2;
-  }
-
-  /* Titel */
-  h1 {
-    font-size: clamp(20px, 5vw, 26px);
-  }
-
-  /* Datum */
-  .event-date {
-    font-size: 14px;
-    opacity: 0.85;
-  }
-
-  /* Countdown Boxen */
-  .countdown {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-  }
-
-  .countdown-item {
-    padding: 14px;
-    font-size: 14px;
-  }
-
-  /* Button */
-  .save-button {
-    width: 100%;
-    margin-top: 12px;
-  }
-}
