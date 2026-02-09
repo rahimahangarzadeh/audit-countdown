@@ -256,10 +256,10 @@ h1{
 
   /* Buttons schmaler machen, damit mehr auf den Schirm passt */
   .audit-button {
-    padding: 8px 12px; 
+    padding: 6px 10px; 
     margin-bottom: 6px;
-    min-height: 35px; /* Kleinere Touch-Fläche für mehr Platz */
-    font-size: 0.85rem;
+    min-height: 25px; /* Kleinere Touch-Fläche für mehr Platz */
+    font-size: 0.65rem;
   }
 
   .sidebar h2 {
@@ -425,4 +425,5 @@ body{
   body { padding: 10px; }
   .sidebar, .main-panel { padding: var(--pad-sm); }
 }
+
 
