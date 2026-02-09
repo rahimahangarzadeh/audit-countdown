@@ -238,17 +238,49 @@ h1{
   .countdown{grid-template-columns:repeat(2,1fr)}
 }
 
-@media (max-width: 480px){
-  .sidebar,.main-panel{
-    padding:var(--pad-sm);
-    border-radius:20px;
+@media (max-width: 480px) {
+  /* Weniger Abstand oben und unten */
+  body {
+    padding: 10px;
+    align-items: flex-start;
   }
-  .countdown{gap:var(--gap-sm)}
-  .time-unit{padding:18px 12px;border-radius:18px}
-  .header{margin-bottom:18px}
-  .event-info{margin-bottom:18px}
-  .audit-button{margin-bottom:10px}
-  .save-button{width:100%} /* CTA über die ganze Breite */
+
+  .container {
+    gap: 10px; /* Kleinerer Abstand zwischen Liste und Timer */
+  }
+
+  .sidebar, .main-panel {
+    padding: 12px; /* Weniger Innenabstand in den Boxen */
+    border-radius: 15px;
+  }
+
+  /* Buttons schmaler machen, damit mehr auf den Schirm passt */
+  .audit-button {
+    padding: 8px 12px; 
+    margin-bottom: 6px;
+    min-height: 35px; /* Kleinere Touch-Fläche für mehr Platz */
+    font-size: 0.85rem;
+  }
+
+  .sidebar h2 {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+  }
+
+  /* Timer-Header verkleinern */
+  h1 {
+    font-size: 1.4rem;
+  }
+  
+  .event-info {
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+  }
+
+  /* Countdown-Boxen kompakter */
+  .time-unit {
+    padding: 10px 5px;
+  }
 }
 
 /* Motion reduziert (Accessibility) */
