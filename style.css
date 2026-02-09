@@ -73,7 +73,7 @@ body{
 /* Buttons – besser für Touch */
 .audit-button{
   width:100%;
-  padding:16px 16px;
+  padding:10px 10px;
   margin-bottom:12px;
   background:rgba(255,255,255,.95);
   border:0;
@@ -90,7 +90,7 @@ body{
 
 .audit-button:hover{
   transform:translateY(-2px);
-  box-shadow:0 8px 25px rgba(0,0,0,.15);
+  box-shadow:0 8px 18px rgba(0,0,0,.15);
   background:#fff;
 }
 
@@ -425,3 +425,4 @@ body{
   body { padding: 10px; }
   .sidebar, .main-panel { padding: var(--pad-sm); }
 }
+
