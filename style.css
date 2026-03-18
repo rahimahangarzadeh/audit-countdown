@@ -1,4 +1,4 @@
-/* --- OPTIMIERTE GRÖSSE: GUT LESBAR & GUT KLICKBAR --- */
+/* --- AUDIT COUNTDOWN - DUNKLES AMBER THEME --- */
 
 * {
   margin: 0;
@@ -7,18 +7,48 @@
 }
 
 :root {
+  --card: #262626;
+  --ring: #f59e0b;
+  --input: #404040;
+  --muted: #262626;
+  --accent: #92400e;
+  --border: #404040;
+  --chart-1: #fbbf24;
+  --chart-2: #d97706;
+  --chart-3: #92400e;
+  --chart-4: #b45309;
+  --chart-5: #92400e;
+  --popover: #262626;
+  --primary: #f59e0b;
+  --sidebar: #0f0f0f;
+  --secondary: #262626;
+  --background: #171717;
+  --foreground: #e5e5e5;
+  --destructive: #ef4444;
+  --sidebar-ring: #f59e0b;
+  --sidebar-accent: #92400e;
+  --sidebar-border: #404040;
+  --card-foreground: #e5e5e5;
+  --sidebar-primary: #f59e0b;
+  --muted-foreground: #a3a3a3;
+  --accent-foreground: #fde68a;
+  --popover-foreground: #e5e5e5;
+  --primary-foreground: #000000;
+  --sidebar-foreground: #e5e5e5;
+  --secondary-foreground: #e5e5e5;
+  --destructive-foreground: #ffffff;
+  --sidebar-accent-foreground: #fde68a;
+  --sidebar-primary-foreground: #ffffff;
+
   --radius-panel: 16px;
   --radius-btn: 10px;
   --gap-main: 15px;
-  --glass-bg: rgba(255, 255, 255, 0.1);
-  --glass-br: 1px solid rgba(255, 255, 255, 0.2);
-  --text: #ffffff;
 }
 
 body {
   font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  background: #1a1a1c;
-  color: var(--text);
+  background: var(--background);
+  color: var(--foreground);
   padding: 20px;
   display: flex;
   justify-content: center;
@@ -30,18 +60,23 @@ body {
   width: 100%;
   max-width: 1000px;
   display: grid;
-  grid-template-columns: 320px 1fr; /* Sidebar etwas breiter für Text */
+  grid-template-columns: 320px 1fr;
   gap: var(--gap-main);
 }
 
 /* Panels */
-.sidebar, .main-panel {
-  background: var(--glass-bg);
-  border: var(--glass-br);
+.sidebar {
+  background: var(--sidebar);
+  border: 1px solid var(--sidebar-border);
   border-radius: var(--radius-panel);
   padding: 20px;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+}
+
+.main-panel {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-panel);
+  padding: 20px;
 }
 
 /* Sidebar & Buttons */
@@ -50,22 +85,29 @@ body {
   margin-bottom: 15px;
   font-weight: 600;
   letter-spacing: 0.5px;
+  color: var(--sidebar-foreground);
 }
 
 .audit-button {
   width: 100%;
-  padding: 12px 16px; /* Größere Klickfläche */
+  padding: 12px 16px;
   margin-bottom: 8px;
-  background: #ffffff;
-  border: none;
+  background: var(--secondary);
+  border: 1px solid var(--border);
   border-radius: var(--radius-btn);
   text-align: left;
-  font-size: 0.95rem; /* Gut lesbare Schrift */
+  font-size: 0.95rem;
   font-weight: 600;
-  color: #222;
+  color: var(--secondary-foreground);
   cursor: pointer;
-  transition: transform 0.1s, background 0.2s;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: transform 0.1s, background 0.2s, border-color 0.2s;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.audit-button:hover {
+  background: var(--accent);
+  border-color: var(--primary);
+  color: var(--accent-foreground);
 }
 
 .audit-button:active {
@@ -73,19 +115,22 @@ body {
 }
 
 .audit-button.active {
-  background: linear-gradient(135deg, #6e8efb, #a777e3);
-  color: #fff;
+  background: var(--primary);
+  color: var(--primary-foreground);
+  border-color: var(--primary);
+  box-shadow: 0 0 12px rgba(245, 158, 11, 0.3);
 }
 
 /* Main Panel & Header */
 h1 {
-  font-size: 1.8rem; /* Markante Überschrift */
+  font-size: 1.8rem;
   margin-bottom: 5px;
+  color: var(--foreground);
 }
 
 .event-info {
   font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--muted-foreground);
   margin-bottom: 20px;
 }
 
@@ -98,7 +143,8 @@ h1 {
 }
 
 .time-unit {
-  background: rgba(255, 255, 255, 0.15);
+  background: var(--muted);
+  border: 1px solid var(--border);
   padding: 15px 5px;
   border-radius: 12px;
   text-align: center;
@@ -108,32 +154,54 @@ h1 {
   font-size: 1.8rem;
   font-weight: 800;
   display: block;
+  color: var(--primary);
 }
 
 .time-label {
   font-size: 0.7rem;
   text-transform: uppercase;
   font-weight: 700;
-  opacity: 0.8;
+  color: var(--muted-foreground);
+}
+
+/* Empty State */
+.empty-state {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--muted-foreground);
+}
+
+.empty-state-icon {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.empty-state p {
+  color: var(--muted-foreground);
 }
 
 /* Action Button */
 .save-button {
   width: 100%;
   padding: 15px;
-  background: #fff;
-  color: #6e8efb;
+  background: var(--primary);
+  color: var(--primary-foreground);
   border: none;
   border-radius: var(--radius-btn);
   font-size: 1rem;
   font-weight: 800;
   text-transform: uppercase;
   cursor: pointer;
+  transition: background 0.2s;
+}
+
+.save-button:hover {
+  background: var(--chart-2);
 }
 
 /* Responsivität */
 
-/* Tablet (Wechsel zu einspaltig) */
+/* Tablet */
 @media (max-width: 900px) {
   .container {
     grid-template-columns: 1fr;
@@ -146,7 +214,7 @@ h1 {
   body {
     padding: 10px;
   }
-  
+
   .sidebar, .main-panel {
     padding: 15px;
   }

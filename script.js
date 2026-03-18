@@ -12,9 +12,7 @@ window.setPreset = function(title, year, month, day, hour, minute, button) {
     document.querySelectorAll('.audit-button').forEach(btn => btn.classList.remove('active'));
     button.classList.add('active');
     
-    // Hintergrundfarbe ändern basierend auf dem Button
-    const color = button.getAttribute('data-color');
-    document.body.style.background = `linear-gradient(135deg, ${color} 0%, ${adjustColor(color, -30)} 100%)`;
+    // Hintergrundfarbe wird vom CSS-Theme gesteuert
     
     // Countdown-Inhalt erstellen
     const countdownHTML = `
